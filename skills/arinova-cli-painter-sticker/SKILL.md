@@ -25,7 +25,7 @@ arinova --profile <profile> painter create \
   --price-type free
 ```
 
-Supply both a managed cover and at least one gallery image, then set the system prompt:
+Supply both a managed cover and at least one gallery image, then configure the album generation instructions:
 
 ```sh
 arinova --profile <profile> painter upload-cover \
