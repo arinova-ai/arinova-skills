@@ -50,7 +50,7 @@ Publishing and rollback both run current scan rules, revoke Space OAuth tokens, 
 
 Creator products are managed under `space products`. A Space can define up to 100 consumable, durable, or subscription products. Deactivation stops new purchases but existing subscriptions continue; `wind-down` also schedules subscription renewals to end at the current period boundary. Inventory and entitlements are server-authoritative; per-user Space storage is not an inventory ledger.
 
-Storage commands require a Space-bound OAuth access token, not a creator profile key.
+Storage commands require a Space-bound OAuth access token, not a creator profile key. Pass it with the global `--token`; this runtime storage flow is the only workflow in this guide where `--token` should be used.
 
 For a trusted backend, create a confidential OAuth app with explicit service scopes, for example:
 

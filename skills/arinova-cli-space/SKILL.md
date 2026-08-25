@@ -31,14 +31,16 @@ arinova --profile <profile> app create \
   --redirect-uri "https://creator.example/callback"
 
 arinova --profile <profile> space create --name "My Space"
-arinova --profile <profile> space init my-space
+arinova space init my-space
 cd my-space
 ```
+
+`space init` accepts `--api-origin <origin>` when scaffolding for a specific environment. Without the flag, it writes the currently resolved CLI environment's API origin into the generated manifest, so choose the target environment before scaffolding.
 
 Edit `space.json`: replace the placeholder `id` with `my-space`, confirm the entry file, scopes, and declared API origins, and leave only supported manifest keys. Then validate and package it:
 
 ```sh
-arinova --profile <profile> space build
+arinova space build
 ```
 
 The default artifact is `dist/<oauth-client-id>-<manifest-version>.zip`. Use the Space UUID returned by `space create` for the remote lifecycle:
@@ -49,6 +51,8 @@ arinova --profile <profile> space version create <space-uuid> \
 arinova --profile <profile> space version preview <space-uuid> <version-uuid>
 arinova --profile <profile> space version publish <space-uuid> <version-uuid>
 ```
+
+Direct `arinova space publish <id>` always throws; managed bundles can be published only with `space version publish <space-uuid> <version-uuid>`.
 
 Use `--json` when IDs must be captured reliably. Preview URLs expire after 15 minutes. Inspect the preview and scan result before publishing.
 

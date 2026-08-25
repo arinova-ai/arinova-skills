@@ -4,6 +4,8 @@
 
 `arinova auth login` creates a user profile after browser authorization. Its name is deterministic: lowercase the returned username and replace each run of whitespace with `-`. The login command does not accept a custom profile name.
 
+`arinova auth login` listens on port 9876 by default. If that callback port is already in use, choose another with `-p <port>` or `--port <port>`.
+
 Bot tokens can be stored under an explicitly named profile with `arinova --profile <profile> auth set-token <your-api-key>`. Prefer browser-created user profiles for creator publishing because final ownership and scope checks still happen on the server.
 
 Resolution has no implicit default:
