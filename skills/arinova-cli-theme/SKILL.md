@@ -16,18 +16,18 @@ Prerequisite refresh:
 Scaffold the project, replace the placeholder preview, and edit the manifest and entry module:
 
 ```sh
-arinova --profile <profile> theme init my-theme
+arinova theme init my-theme
 cd my-theme
-arinova --profile <profile> theme dev
+arinova theme dev
 ```
 
 The dev command binds a loopback development server on port 3100 by default and prints the address to open. It serves the real bridge with mock agent state. Stop it before building if another process needs the port.
 
 ```sh
-arinova --profile <profile> theme build
+arinova theme build
 ```
 
-Build creates a flat `my-theme.zip`. It packages the declared entry as root `theme.js`, flattens supported root assets, skips subdirectories, and excludes `theme.json` from the ZIP because the manifest is uploaded separately. Treat a skipped-directory warning as a broken asset layout, not a harmless warning.
+Build creates a flat `my-theme.zip`. It packages the declared entry as root `theme.js`, includes supported root assets, skips subdirectories, and excludes `theme.json` from the ZIP because the manifest is uploaded separately. Treat a skipped-directory warning as a broken asset layout, not a harmless warning.
 
 ## Upload, review, and publish
 

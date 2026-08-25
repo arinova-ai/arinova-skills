@@ -16,7 +16,7 @@ Core validation:
 
 The ZIP is flat. Subdirectories and symlinks are not publishable assets. The build contains `theme.js`, the preview, and supported root assets; `theme.json` is sent as the separate multipart manifest. Current ceilings are 256 KiB for the manifest, 200 MiB for the bundle, 10 MiB per image, and 5 MiB per audio file.
 
-Supported bundle types include common images, 3D models, audio, JSON, JavaScript, CSS, and HTML. Font files are not accepted bundle extensions.
+Supported bundle types include common images, 3D models, audio, JSON, JavaScript, and CSS. Font files are not accepted bundle extensions. Although `theme build` packages root `.html` files, the server rejects the entire bundle when it contains HTML; remove them before upload.
 
 ## Runtime and CSP
 
